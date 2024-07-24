@@ -1,9 +1,8 @@
+import { extendTheme } from '@mui/material';
+import { pigment } from '@pigment-css/vite-plugin';
 import { vitePlugin as remix } from '@remix-run/dev';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { pigment } from '@pigment-css/vite-plugin';
-import { extendTheme } from '@mui/material';
-import { cjsInterop } from 'vite-plugin-cjs-interop';
 
 const pigmentConfig = {
   theme: extendTheme(),
@@ -20,8 +19,15 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
-    cjsInterop({
-      dependencies: ['@mui/material-css-pigment'],
-    }),
   ],
+  optimizeDeps: {
+    include: [
+      '@mui/material',
+      '@pigment-css/react',
+      '@mui/material-pigment-css',
+    ],
+  },
+  ssr: {
+    noExternal: [/@mui/, /@pigment-css/],
+  },
 });

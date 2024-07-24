@@ -5,7 +5,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
+
 import '@mui/material-pigment-css/styles.css';
+
+import CssBaseline from '@mui/material/CssBaseline';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,6 +20,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <CssBaseline />
         {children}
         <ScrollRestoration />
         <Scripts />
