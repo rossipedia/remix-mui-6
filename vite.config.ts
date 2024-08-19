@@ -6,7 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 const pigmentConfig = {
   theme: extendTheme(),
-  transformLibrarys: ['@mui/material']
+  transformLibraries: ['@mui/material']
 };
 
 export default defineConfig({
